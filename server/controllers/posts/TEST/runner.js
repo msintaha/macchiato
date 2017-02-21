@@ -81,7 +81,7 @@ describe("Post api", () => {
           params : {id: '23545'}
         };
 
-        let res = testUtils.responseValidatorAsync(500, function (err) {
+        let res = testUtils.responseValidatorAsync(500, (err) => {
           done();
         });
 
