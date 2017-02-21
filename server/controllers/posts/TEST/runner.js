@@ -24,7 +24,7 @@ describe("Post api", () => {
         'author': 'someone',
         'body': 'Lorem ipsum dior'
       });
-      
+
       dummyPost.save((err, post) => {
           if (err) { res.send(err); }
           id = post._id;
@@ -89,7 +89,7 @@ describe("Post api", () => {
       });
   });
 
-  describe("Update Post", function() {
+  describe("Update Post", () => {
       it("should update an existing post", (done) => {
         let req = {
           params: {id: id},
@@ -108,7 +108,7 @@ describe("Post api", () => {
       });
   });
 
-  describe("Delete Post", function() {
+  describe("Delete Post", () => {
       it("should delete an existing post", (done) => {
         let req = {
           params: {id: id},
