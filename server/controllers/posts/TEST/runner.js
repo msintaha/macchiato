@@ -11,19 +11,21 @@ const config = require(base + '/config'),
     testUtils = require(base + '/test/utils');
 
 describe("Post api", () => {
-  let id;
+  let id, dummyPost;
 
   before((done) => {
       mongoose.connect(config.testDb, () => {
           console.log('Connected to: '+ config.testDb);
           done();
       });
-      var post = new Post({
+
+      dummyPost = new Post({
         'title': 'dummy',
         'author': 'someone',
         'body': 'Lorem ipsum dior'
       });
-      post.save((err, post) => {
+      
+      dummyPost.save((err, post) => {
           if (err) { res.send(err); }
           id = post._id;
       });
@@ -47,17 +49,18 @@ describe("Post api", () => {
 
   describe("GET Posts", () => {
       it("should respond with an array of posts", (done) => {
-        var req, res;
+        let req = {};
 
-        req = {};
-        res = testUtils.responseValidatorAsync(200, (posts) => {
+        let res = testUtils.responseValidatorAsync(200, (posts) => {
           posts.length.should.equal(2);
           posts[0].should.have.property('title');
           done();
         });
+
         posts.getPosts(req, res);
       });
   });
+
   describe("GET Post", () => {
       it("should get a post by id", (done) => {
         let req = {
@@ -77,6 +80,7 @@ describe("Post api", () => {
         let req = {
           params : {id: '23545'}
         };
+
         let res = testUtils.responseValidatorAsync(500, function (err) {
           done();
         });
@@ -93,6 +97,7 @@ describe("Post api", () => {
             'title': 'hey there peeps'
           }
         };
+
         let res = testUtils.responseValidatorAsync(200, (post) => {
           post.should.have.property('title');
           post.title.should.equal('hey there peeps');
@@ -108,6 +113,7 @@ describe("Post api", () => {
         let req = {
           params: {id: id},
         };
+
         let res = testUtils.responseValidatorAsync(200, (post) => {
           post.should.have.property('removed');
           post.removed.should.equal(true);
