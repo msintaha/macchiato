@@ -1,61 +1,129 @@
-var should = require('should');
-var assert = require('assert');
-var request = require('supertest');
-var mongoose = require('mongoose');
-var winston = require('winston');
-var config = require('../../../config');
+'use strict';
+process.env.NODE_ENV = 'test';
 
+const base = process.env.PWD;
+const config = require(base + '/config'),
+    logger = require('mocha-logger'),
+    mongoose = require('mongoose'),
+    posts = require(base + '/controllers/posts'),
+    Post = require(base + '/models/post'),
+    should = require('should'),
+    testUtils = require(base + '/test/utils');
 
-describe('Routing', function() {
-    var url = 'http://localhost:3000/api';
+describe("Post api", () => {
+  let id;
 
-    before(function(done) {
-        mongoose.connect(config.testDB);
-        done();
-    });
+  before((done) => {
+      mongoose.connect(config.testDb, () => {
+          console.log('Connected to: '+ config.testDb);
+          done();
+      });
+      var post = new Post({
+        'title': 'dummy',
+        'author': 'someone',
+        'body': 'Lorem ipsum dior'
+      });
+      post.save((err, post) => {
+          if (err) { res.send(err); }
+          id = post._id;
+      });
+  });
 
-    // to perform async test!
-    describe('Posts', function() {
-        it('should create a post successfully', function(done) {
-            var post = {
-                title: 'dummy',
-                body: 'test test',
-                authot: 'Valerio'
-            };
+  describe("Create Post", () => {
+      it("should create a new post", (done) => {
+        let req = {
+          body : {'title': 'bleh'}
+        };
 
-            request(url)
-                .post('/post/create')
-                .send(post)
-                .end(function(err, res) {
-                    if (err) {
-                        throw err;
-                    }
-                    res.should.have.status(200);
-                    done();
-                });
+        let res = testUtils.responseValidatorAsync(200, (post) => {
+          post.should.have.property('title');
+          post.title.should.equal('bleh');
+          done();
         });
-        // it('should correctly update an existing account', function(done){
-        //     var body = {
-        //         firstName: 'JP',
-        //         lastName: 'Berd'
-        //     };
-        //     request(url)
-        //         .put('/api/profiles/vgheri')
-        //         .send(body)
-        //         .expect('Content-Type', /json/)
-        //         .expect(200) //Status code
-        //         .end(function(err,res) {
-        //             if (err) {
-        //                 throw err;
-        //             }
-        //             // Should.js fluent syntax applied
-        //             res.body.should.have.property('_id');
-        //             res.body.firstName.should.equal('JP');
-        //             res.body.lastName.should.equal('Berd');
-        //             res.body.creationDate.should.not.equal(null);
-        //             done();
-        //         });
-        // });
 
-    });
+        posts.createPost(req, res);
+      });
+  });
+
+  describe("GET Posts", () => {
+      it("should respond with an array of posts", (done) => {
+        var req, res;
+
+        req = {};
+        res = testUtils.responseValidatorAsync(200, (posts) => {
+          posts.length.should.equal(2);
+          posts[0].should.have.property('title');
+          done();
+        });
+        posts.getPosts(req, res);
+      });
+  });
+  describe("GET Post", () => {
+      it("should get a post by id", (done) => {
+        let req = {
+          params : {id: id}
+        };
+
+        let res = testUtils.responseValidatorAsync(200, (post) => {
+          post.title.should.equal('dummy');
+          post.should.have.property('title');
+          done();
+        });
+
+        posts.getPost(req, res);
+      });
+
+      it("should throw an error for invalid id", (done) => {
+        let req = {
+          params : {id: '23545'}
+        };
+        let res = testUtils.responseValidatorAsync(500, function (err) {
+          done();
+        });
+
+        posts.getPost(req, res);
+      });
+  });
+
+  describe("Update Post", function() {
+      it("should update an existing post", (done) => {
+        let req = {
+          params: {id: id},
+          body: {
+            'title': 'hey there peeps'
+          }
+        };
+        let res = testUtils.responseValidatorAsync(200, (post) => {
+          post.should.have.property('title');
+          post.title.should.equal('hey there peeps');
+          done();
+        });
+
+        posts.updatePost(req, res);
+      });
+  });
+
+  describe("Delete Post", function() {
+      it("should delete an existing post", (done) => {
+        let req = {
+          params: {id: id},
+        };
+        let res = testUtils.responseValidatorAsync(200, (post) => {
+          post.should.have.property('removed');
+          post.removed.should.equal(true);
+          done();
+        });
+
+        posts.removePost(req, res);
+      });
+  });
+
+  after((done) => {
+      Post.remove({}, (err) => {
+        if(err) {console.log(err);}
+      });
+
+      mongoose.disconnect(done);
+  });
+
 });

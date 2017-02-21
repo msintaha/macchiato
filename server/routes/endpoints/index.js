@@ -1,15 +1,15 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
-var posts = require('../controllers/posts');
+const express = require('express'),
+ router = express.Router(),
+ posts = require('../../controllers/posts');
 
 router.get('/', posts.home);
-router.post('/post/create', posts.create);
-router.get('/posts', posts.all);
-router.delete('/post/:id', posts.remove);
-router.get('/post/:id', posts.get);
-router.put('/post/:id', posts.update);
+router.post('/post/create', posts.createPost);
+router.get('/posts', posts.getPosts);
+router.delete('/post/:id', posts.removePost);
+router.get('/post/:id', posts.getPost);
+router.put('/post/:id', posts.updatePost);
 
 
 module.exports = router;
