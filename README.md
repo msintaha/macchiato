@@ -8,4 +8,8 @@ A boilerplate template for expressJS and mongo based rest API app
 - `npm test` to run unit tests
 
 ## Client
-- TBD
+- Navigate to client folder
+- `npm install`
+- `bower install`
+- `gulp serve` to run the app
+- `gulp test` to run unit tests
