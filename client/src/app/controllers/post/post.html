@@ -1,0 +1,14 @@
+<div class="body-top-section">
+  <div class="container">
+    <img src="http://placehold.it/1170x250">
+    <h2>{{post.postObject.title}}</h2>
+    <h5>{{post.postObject.author}} - {{post.postObject.createdAt | date:'medium'}}</h5>
+    <hr>
+    <div class="row">
+      <p>{{post.postObject.body}}</p>
+    </div>
+    <br>
+    <button type="button" class="btn btn-warning"><a href="/edit/post/{{post.id}}">Edit</a></button>
+    <button type="button" class="btn btn-danger" ng-click="post.delete()">Delete</button>
+  </div>
+</div>

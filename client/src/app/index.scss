@@ -1,0 +1,186 @@
+/**
+ *  Do not remove the comments below. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+
+/**
+ *  Do not remove the comments below. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector
+
+html,body{height: 100%;}
+
+*{outline:none;}
+
+
+
+a.btn.round{
+	font-size:16px;
+	text-align:center;
+	padding:8px 40px;
+	color:#be9775;
+	border:1px solid #be9775;
+	border-radius: 25px;
+	text-decoration: none;
+	display: inline-block;
+	transition: all .3s ease-in-out;
+}
+
+a.btn.round:hover{
+	color:#FFFFFF;
+	background:#be9775;
+}
+/***********************************************************/
+.container.main{ transition: all .5s ease-in-out;}
+.body-top-section{
+
+	display: table;
+	width:100%;height: 100%;
+}
+
+.body-top-section .content{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+.body-top-section img.mad-koffee{
+	max-width: 90%;
+	display: block;
+	margin:0px auto 20px;
+	transition: all .3s ease-in-out;
+}
+
+.body-top-section .madness,.body-top-section .madness-title{
+	color:#291809;
+	text-transform: uppercase;
+	text-align: center;
+	margin:0;
+}
+
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+}
+
+.body-top-section .madness-wrapper{height:35px;}
+.body-top-section .madness-title{font-size: 22px;margin-bottom:7px;}
+.body-top-section .madness{font-size: 16px;}
+
+.body-top-section .top-banner-btn-set{padding:0;text-align: center;margin:30px 0;}
+.body-top-section .top-banner-btn-set li{list-style: none;display: inline-block;margin-right:15px;}
+.body-top-section .top-banner-btn-set li:last-child{margin-right:0;}
+.body-top-section .top-banner-btn-set li a{
+	display: block;
+	font-family: 'Gotham-Bold';
+	font-size:21px;
+	color:#be9775;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding:2px 20px;
+	background: #261404;
+	transition: all .3s ease-in-out;
+}
+
+
+.body-top-section a.btn-explore{
+	position: absolute;
+	width:40px;height: 40px;
+	border:2px solid #291809;
+
+	border-radius: 50%;
+	left:0;right:0;bottom:20px;
+	margin:auto;
+
+	-webkit-animation: bounce 1s infinite;
+
+}
+
+@-webkit-keyframes bounce {
+  0%       { bottom:25px; }
+  25%, 75% { bottom:35px; }
+  50%      { bottom:40px; }
+  100%     {bottom:20px;}
+}
+
+/******************************************************************************/
+
+
+.card.posts {
+  float: left;
+  margin: 10px;
+  width: 350px;
+  border:1px solid #e8e8e8;
+}
+
+.card-block{
+  padding:10px;
+}
+
+footer{
+	background: #337ab7;
+	text-align: center;
+	color:#be9775;
+	padding-bottom:50px;
+}
+
+footer a.logo{
+	text-decoration: none;
+	font-size:36px;
+	color:#be9775;
+	text-transform: uppercase;
+	display: inline-block;
+	margin:40px 0;
+}
+
+footer ul.footer-nav{padding:0;margin:30px 0;}
+footer ul.footer-nav li{list-style: none;display: inline-block;margin-right:15px;}
+footer ul.footer-nav li:last-child{margin-right:0;}
+footer ul.footer-nav li a{display:block;color:#be9775;font-size:15px;text-decoration:none;text-transform: uppercase;transition: all .3s ease-in-out;}
+footer ul.footer-nav li a:hover{color:#d7bca5;}
+
+footer h3 span{
+	display: inline-block;
+	border-bottom:1px solid #be9775;
+	padding:5px;
+	text-transform: uppercase;
+	font-size:15px;
+}
+
+footer p{
+	max-width:320px;
+	display: inline-block;
+}
+
+@media(max-width:767px){
+
+
+}
+
+@media(min-width:768px){
+
+	.container.main{padding-top:50px;}
+
+
+	.post .title{font-size:20px;}
+
+}
+
+@media(min-width:992px){
+
+}
+
+@media(min-width:1200px){
+
+
+}
