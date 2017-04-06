@@ -17,3 +17,8 @@ A boilerplate template to get you started with **Production Ready** software/app
 - `bower install`
 - `gulp serve` to run the app
 - `gulp test` to run unit tests
+
+# License
+This project is licensed under the MIT license.
+
+If you have any questions or comments, please create an issue.
