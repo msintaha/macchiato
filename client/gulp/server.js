@@ -37,13 +37,14 @@ function browserSyncInit(baseDir, browser) {
 
   browserSync.instance = browserSync.init({
     startPath: '/',
+    ghostMode: false,
     server: server,
     browser: browser
   });
 }
 
 browserSync.use(browserSyncSpa({
-  selector: '[ng-app]'// Only needed for angular apps
+  selector: '[ng-app] [ui-router]'// Only needed for angular apps
 }));
 
 gulp.task('serve', ['watch'], function () {

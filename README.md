@@ -1,5 +1,7 @@
-# expressjs-rest-api
-A boilerplate template for MEAN stack
+![Macchiato](https://raw.githubusercontent.com/msintaha/macchiato/master/assets/img/macchiato-text.png)
+
+# Macchiato
+A boilerplate template to get you started with MEAN stack
 
 ## Server
 -  Create 2 databases via robomongo `express_app_db` and `express_app_db_test`
