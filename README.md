@@ -3,15 +3,15 @@
 </p>
 
 # Macchiato
-A boilerplate template to get you started with MEAN stack
+A boilerplate template to get you started with **Production Ready** software/app with MEAN stack
 
-## Server
+## Server - Express JS
 -  Create 2 databases via robomongo `macchiato` and `macchiato_test`
 - `npm install` to install project dependencies
 - `nodemon` to run the app
 - `npm test` to run unit tests
 
-## Client
+## Client - Angular JS
 - Navigate to client folder
 - `npm install`
 - `bower install`
