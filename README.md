@@ -1,10 +1,12 @@
-![Macchiato](https://raw.githubusercontent.com/msintaha/macchiato/master/assets/img/macchiato-text.png)
+<p align="center">
+<img src="https://raw.githubusercontent.com/msintaha/macchiato/master/assets/img/macchiato-text.png">
+</p>
 
 # Macchiato
 A boilerplate template to get you started with MEAN stack
 
 ## Server
--  Create 2 databases via robomongo `express_app_db` and `express_app_db_test`
+-  Create 2 databases via robomongo `macchiato` and `macchiato_test`
 - `npm install` to install project dependencies
 - `nodemon` to run the app
 - `npm test` to run unit tests
