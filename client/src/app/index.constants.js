@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('appFrontend')
+    .module('macchiato')
     .constant('config', {
       apiUrl: 'http://localhost:8080/api/'
     });

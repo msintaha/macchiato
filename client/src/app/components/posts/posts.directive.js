@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('appFrontend')
+    .module('macchiato')
     .directive('posts', postsDirective);
 
   /** @ngInject */
@@ -20,7 +20,7 @@
     /** @ngInject */
     function PostController($log, postService) {
       var vm = this;
-
+      vm.posts = [];
       postService.getPosts().then(function(data) {
         $log.debug(data);
         vm.posts = data;

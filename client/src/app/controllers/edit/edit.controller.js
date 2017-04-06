@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('appFrontend')
+    .module('macchiato')
     .controller('EditController', EditController);
 
   /** @ngInject */

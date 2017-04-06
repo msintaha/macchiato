@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('appFrontend')
+    .module('macchiato')
     .filter('trusted', htmlSanitizer);
 
   /** @ngInject */

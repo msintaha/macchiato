@@ -12,30 +12,20 @@
  */
 // injector
 // endinjector
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Pacifico');
 
 html,body{height: 100%;}
 
 *{outline:none;}
 
-
-
-a.btn.round{
-	font-size:16px;
-	text-align:center;
-	padding:8px 40px;
-	color:#be9775;
-	border:1px solid #be9775;
-	border-radius: 25px;
-	text-decoration: none;
-	display: inline-block;
-	transition: all .3s ease-in-out;
+h1, h2, h3, .navbar-brand {
+	font-family: 'Pacifico', cursive;
 }
 
-a.btn.round:hover{
-	color:#FFFFFF;
-	background:#be9775;
+body {
+	font-family: 'Montserrat', sans-serif;
 }
-/***********************************************************/
+
 .container.main{ transition: all .5s ease-in-out;}
 .body-top-section{
 
@@ -48,20 +38,6 @@ a.btn.round:hover{
 	vertical-align: middle;
 }
 
-
-.body-top-section img.mad-koffee{
-	max-width: 90%;
-	display: block;
-	margin:0px auto 20px;
-	transition: all .3s ease-in-out;
-}
-
-.body-top-section .madness,.body-top-section .madness-title{
-	color:#291809;
-	text-transform: uppercase;
-	text-align: center;
-	margin:0;
-}
 
 .alert-success {
   color: #3c763d;
@@ -127,40 +103,6 @@ a.btn.round:hover{
   padding:10px;
 }
 
-footer{
-	background: #337ab7;
-	text-align: center;
-	color:#be9775;
-	padding-bottom:50px;
-}
-
-footer a.logo{
-	text-decoration: none;
-	font-size:36px;
-	color:#be9775;
-	text-transform: uppercase;
-	display: inline-block;
-	margin:40px 0;
-}
-
-footer ul.footer-nav{padding:0;margin:30px 0;}
-footer ul.footer-nav li{list-style: none;display: inline-block;margin-right:15px;}
-footer ul.footer-nav li:last-child{margin-right:0;}
-footer ul.footer-nav li a{display:block;color:#be9775;font-size:15px;text-decoration:none;text-transform: uppercase;transition: all .3s ease-in-out;}
-footer ul.footer-nav li a:hover{color:#d7bca5;}
-
-footer h3 span{
-	display: inline-block;
-	border-bottom:1px solid #be9775;
-	padding:5px;
-	text-transform: uppercase;
-	font-size:15px;
-}
-
-footer p{
-	max-width:320px;
-	display: inline-block;
-}
 
 @media(max-width:767px){
 

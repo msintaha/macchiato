@@ -3,12 +3,8 @@ A front-end application built with AngularJS. The site will enable users to buil
 ### Requirements  
 1. NodeJS >= 4
 
-### Getting Started  
-1. Fork this repo
-2. Clone it
-3. Install global dependencies using `npm install -g gulp bower eslint`
-4. Run `npm install`
-5. Run `bower install`
-6. Start server using `gulp serve`
+### Getting Started
+- Install global dependencies using `npm install -g gulp bower eslint`
+
 
 Style-guide: https://github.com/johnpapa/angular-styleguide

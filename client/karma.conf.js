@@ -3,18 +3,45 @@
 var path = require('path');
 var conf = require('./gulp/conf');
 
+var _ = require('lodash');
+var wiredep = require('wiredep');
+
 var pathSrcHtml = [
   path.join(conf.paths.src, '/**/*.html')
 ];
 
+function listFiles() {
+  var wiredepOptions = _.extend({}, conf.wiredep, {
+    dependencies: true,
+    devDependencies: true
+  });
+
+  var patterns = wiredep(wiredepOptions).js
+      .concat([
+        path.join(conf.paths.src, '/app/**/*.module.js'),
+        path.join(conf.paths.src, '/app/**/*.js'),
+        path.join(conf.paths.src, '/**/*.spec.js')
+      ])
+      .concat(pathSrcHtml);
+
+  var files = patterns.map(function(pattern) {
+    return {
+      pattern: pattern
+    };
+  });
+  files.push({
+    pattern: path.join(conf.paths.src, '/assets/**/*'),
+    included: false,
+    served: true,
+    watched: false
+  });
+  return files;
+}
+
 module.exports = function(config) {
 
   var configuration = {
-    browserNoActivityTimeout: 60000,
-
-    captureTimeout: 60000,
-
-    files: [],
+    files: listFiles(),
 
     singleRun: true,
 
@@ -22,7 +49,7 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
       stripPrefix: conf.paths.src + '/',
-      moduleName: 'supportDashboardFrontend'
+      moduleName: 'macchiato'
     },
 
     logLevel: 'WARN',
@@ -38,10 +65,10 @@ module.exports = function(config) {
     plugins : [
       'karma-phantomjs-launcher',
       'karma-angular-filesort',
-      'karma-spec-reporter',
       'karma-coverage',
       'karma-jasmine',
-      'karma-ng-html2js-preprocessor'
+      'karma-ng-html2js-preprocessor',
+      'karma-spec-reporter'
     ],
 
     coverageReporter: {
@@ -50,7 +77,7 @@ module.exports = function(config) {
         { type : 'html', dir : 'coverage/' }
       ]},
 
-    reporters: ['spec'],
+    reporters: ['progress'],
 
     proxies: {
       '/assets/': path.join('/base/', conf.paths.src, '/assets/')
