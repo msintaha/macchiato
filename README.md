@@ -16,10 +16,11 @@ A boilerplate template to get you started with **Production Ready** software/app
 - `nodemon` to run the app
 - `npm test` to run unit tests
 
-```bash.
+```bash
+.
 ├── app.js # Main node server folder
 ├── config
-│   └── index.js #configurations go here
+│   └── index.js # Configurations go here
 ├── controllers
 │   └── posts # example controller with it's test files
 │       ├── TEST
