@@ -40,5 +40,24 @@
       });
     });
 
+    describe('.createPost', function() {
+      it('should get an array of posts successfully', function(done) {
+
+          var post = {
+              title : 'hello world',
+              author  : 'john doe'
+          };
+        $httpBackend.expect('POST', config.apiUrl + 'post/create')
+            .respond(200, post);
+
+        postService.createPost(post).then( function ( data ) {
+          expect(data.title).toEqual('hello world');
+          done();
+        });
+
+        $httpBackend.flush();
+      });
+    });
+
   });
 })();

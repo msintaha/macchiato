@@ -1,31 +1,52 @@
 (function() {
   'use strict';
 
-  xdescribe('Post directive', function() {
-    var scope, compile, directiveElem, postService;
+  describe('Posts Directive', function() {
+        var postService, $q, scope, element, compile, directiveCtrl;
 
-    beforeEach(module('macchiato'));
-    beforeEach(inject(function(_$rootScope_, _$compile_, _postService_) {
-      postService = _postService_;
-      compile = _$compile_;
-      scope = _$rootScope_.$new();
-      directiveElem = _compileElem();
-    }));
+        var result = [{
+          'id': 1,
+          'title': 'dummy',
+          'author': 'may'
+        }, {
+          'id': 1,
+          'title': 'world',
+          'author': 'john'
+        }];
 
-    function _compileElem() {
-      var element = angular.element('<posts></posts>');
-      var compiledElement = compile(element)(scope);
-      scope.$digest();
-      return compiledElement;
-    }
+        beforeEach(module('macchiato'));
 
-    it('should exist', function () {
-      expect(directiveElem).not.toEqual(null);
-    });
+        beforeEach(inject(function(_$controller_, _postService_, _$q_, _$rootScope_, _$compile_) {
+          postService = _postService_;
+          $q = _$q_;
+          compile = _$compile_;
+          scope = _$rootScope_.$new();
+          element = angular.element("<posts></posts>");
+          compile(element)(scope);
 
-    it('should have applied the html template', function() {
-      expect(directiveElem.html()).not.toEqual('');
-    });
+          spyOn(postService, 'getPosts').and.returnValue($q.resolve(result));
+          scope.$digest();
+          directiveCtrl = element.controller('posts');
+        }));
+
+        afterEach(function() {
+            postService.getPosts.calls.reset();
+        });
+
+        it('should apply template', function () {
+            expect(element.html()).not.toEqual('');
+        });
+
+        it ('should define controller', function () {
+            expect(directiveCtrl).toBeDefined();
+        });
+
+        describe("on posts directive load", function() {
+              it("should fetch posts", function(done) {
+                    expect(postService.getPosts).toHaveBeenCalled();
+                    done();
+              });
+        });
 
   });
 })();

@@ -11,6 +11,7 @@
       id = $stateParams.id;
 
     vm.error = false;
+    vm.post = {};
 
     postService.getPost(id).then(function (data) {
       vm.post = data;

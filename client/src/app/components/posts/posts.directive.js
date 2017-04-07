@@ -21,13 +21,13 @@
     function PostController($log, postService) {
       var vm = this;
       vm.posts = [];
+
       postService.getPosts().then(function(data) {
         $log.debug(data);
         vm.posts = data;
       }).catch(function (err) {
         $log.debug(err);
       });
-
     }
   }
 })();
