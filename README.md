@@ -3,11 +3,14 @@
 </p>
 
 # Macchiato
-A boilerplate template to get you started with **Production Ready** software/app with MEAN stack
+A MEAN Stack boilerplate to get you started with building**Production Ready** software/app.
+
+#### N.B. The server and client sides are fully separate
 
 ## Setup
 - Install NodeJS 6.9.1
 - `npm install -g gulp gulp-cli eslint bower`
+- First run server, then run client
 
 ## Server - Express JS
 -  Create 2 databases via robomongo `macchiato` and `macchiato_test`
