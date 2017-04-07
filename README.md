@@ -3,7 +3,7 @@
 </p>
 
 # Macchiato
-A MEAN Stack boilerplate to get you started with building**Production Ready** software/app.
+A MEAN Stack boilerplate to get you started with building **Production Ready** software/app.
 
 #### N.B. The server and client sides are fully separate
 
