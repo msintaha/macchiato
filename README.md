@@ -5,6 +5,8 @@
 # Macchiato
 A MEAN Stack boilerplate to get you started with building **Production Ready** software/app.
 
+Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvCZDGkK2CH
+
 #### N.B. The server and client sides are fully separate
 
 ## Setup
@@ -18,8 +20,6 @@ A MEAN Stack boilerplate to get you started with building **Production Ready** s
 - `npm install` to install project dependencies
 - `nodemon` to run the app
 - `npm test` to run unit tests
-
-Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvCZDGkK2CH
 
 ```bash
 .
