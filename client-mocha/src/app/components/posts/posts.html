@@ -1,0 +1,13 @@
+<div class="container main">
+   <div class="row">
+       <div class="card posts" ng-repeat="post in posts.posts" ng-if="post.published == true">
+         <img class="card-img-top" src="http://placehold.it/350x150">
+         <div class="card-block">
+           <h3 class="card-title">{{post.title}}</h3>
+           <h5>{{post.author}} - {{post.createdAt | date:'medium'}}</h5>
+           <p class="card-text">{{post.body | limitTo:120}}...</p>
+           <a href="/post/{{post._id}}" class="btn btn-macchiato">Read More</a>
+         </div>
+       </div>
+   </div>
+</div>

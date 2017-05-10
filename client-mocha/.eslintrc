@@ -1,0 +1,17 @@
+{
+  "extends": "eslint:recommended",
+  "plugins": [
+    "angular"
+  ],
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "globals": {
+    "angular": true,
+    "module": true,
+    "inject": true,
+    "sinon": true,
+    "expect": true
+  }
+}

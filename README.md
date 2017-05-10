@@ -19,6 +19,8 @@ A MEAN Stack boilerplate to get you started with building **Production Ready** s
 - `nodemon` to run the app
 - `npm test` to run unit tests
 
+Video Tutorial: https://www.youtube.com/playlist?list=PLW1OMpQZxu7wstVOlWx2NBFvCZDGkK2CH
+
 ```bash
 .
 ├── app.js # Main node server folder
@@ -48,7 +50,7 @@ A MEAN Stack boilerplate to get you started with building **Production Ready** s
  ```
 
 ## Client - Angular JS
-- Navigate to client/
+- Navigate to client-jasmine/ (with jasmine framework) OR client-mocha/ (with mocha framework)
 - `npm install`
 - `bower install`
 - `gulp serve` to run the app

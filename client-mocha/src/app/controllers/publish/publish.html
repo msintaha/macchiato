@@ -1,0 +1,27 @@
+<div class="body-top-section">
+  <div class="container">
+    <div ng-if="publish.success == true" uib-alert class="alert-success"
+         close="publish.success = !publish.success">Post created successfully!</div>
+    <div ng-if="publish.error == true" uib-alert class="alert-error"
+         close="publish.error = !publish.error">Oops! Something went wrong.</div>
+
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" ng-model="publish.newPost.title" class="form-control" id="title">
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" ng-model="publish.newPost.author" class="form-control" id="author">
+      </div>
+      <div class="form-group">
+        <label for="body">Description</label>
+        <textarea class="form-control" ng-model="publish.newPost.body" id="body" rows="15"></textarea>
+      </div>
+      <div class="checkbox">
+        <label><input ng-model="publish.newPost.published" type="checkbox">Publish</label>
+      </div>
+      <button type="submit" class="btn btn-macchiato" ng-click="publish.createPost()">Create!</button>
+    </form>
+  </div>
+</div>
